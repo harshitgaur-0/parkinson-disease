@@ -12,7 +12,7 @@ x=Scaler.fit_transform(independent,dependent)
 from sklearn.model_selection import train_test_split
 train_x,test_x,train_y,test_y=train_test_split(independent,dependent,test_size=0.2)
 from xgboost import XGBClassifier
-model=XGBClassifier.fit(train_x,train_y)
+model=XGBClassifier().fit(train_x,train_y.values.ravel())
 pred_y=model.predict(test_x)
 from sklearn.metrics import accuracy_score
 print("accuracy of model=",accuracy_score(test_y,pred_y))
